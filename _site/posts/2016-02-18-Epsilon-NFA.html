@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>My Hakyll Blog - epsilon-NFA</title>
+        <link rel="stylesheet" type="text/css" href="../css/default.css" />
+    </head>
+    <body>
+        <div id="header">
+            <div id="logo">
+                <a href="../">My Hakyll Blog</a>
+            </div>
+            <div id="navigation">
+                <a href="../">Home</a>
+                <a href="../about.html">About</a>
+                <a href="../contact.html">Contact</a>
+                <a href="../archive.html">Archive</a>
+            </div>
+        </div>
+
+        <div id="content">
+            <h1>epsilon-NFA</h1>
+
+            <div class="info">
+    Posted on February 18, 2016
+    
+</div>
+
+<h1 id="nfa-with-epsilon-transitions">NFA with <span class="math inline"><em>e</em><em>p</em><em>s</em><em>i</em><em>l</em><em>o</em><em>n</em></span>-Transitions</h1>
+<ul>
+<li>make a transition from one state to another state without consuming any of the input string</li>
+</ul>
+<h2 id="formally.-an-epsilon-nfa-is-a-tuple-q-sigma-delta-q0-f">Formally. An <span class="math inline"><em>e</em><em>p</em><em>s</em><em>i</em><em>l</em><em>o</em><em>n</em></span>-NFA is a tuple <span class="math inline">(<em>Q</em>, <em>s</em><em>i</em><em>g</em><em>m</em><em>a</em>, <em>d</em><em>e</em><em>l</em><em>t</em><em>a</em>, <em>q</em>0, <em>f</em>)</span></h2>
+<ul>
+<li>While everything except <span class="math inline"><em>d</em><em>e</em><em>l</em><em>t</em><em>a</em></span> is as for NFA’s</li>
+<li><span class="math inline"><em>d</em><em>e</em><em>l</em><em>t</em><em>a</em> : <em>Q</em><em>x</em>(<em>s</em><em>i</em><em>g</em><em>m</em><em>a</em><em>u</em><em>n</em><em>i</em><em>o</em><em>n</em><em>e</em><em>p</em><em>s</em><em>o</em><em>l</em><em>o</em><em>n</em>)− &gt; <em>s</em><em>e</em><em>t</em><em>Q</em>[<em>e</em><em>p</em><em>s</em><em>i</em><em>l</em><em>o</em><em>n</em><em>n</em><em>o</em><em>t</em><em>i</em><em>n</em><em>s</em><em>i</em><em>g</em><em>m</em><em>a</em>]</span></li>
+</ul>
+<h2 id="epsolon-closure-of-states"><span class="math inline"><em>e</em><em>p</em><em>s</em><em>o</em><em>l</em><em>o</em><em>n</em></span>-closure of states</h2>
+<ul>
+<li>Given <span class="math inline"><em>e</em><em>p</em><em>s</em><em>i</em><em>l</em><em>o</em><em>n</em></span>-NFA A = <span class="math inline">(<em>Q</em>, <em>s</em><em>i</em><em>g</em><em>m</em><em>a</em>, <em>d</em><em>e</em><em>l</em><em>t</em><em>a</em>, <em>q</em>0, <em>f</em>)</span></li>
+<li>Eclose(q) = the set of states that we can reach from q using <span class="math inline"><em>e</em><em>p</em><em>s</em><em>i</em><em>l</em><em>o</em><em>n</em></span>-transitions only</li>
+<li><span class="math inline"><em>e</em><em>p</em><em>s</em><em>i</em><em>l</em><em>o</em><em>n</em></span> transition is a transition that does not consume any input</li>
+</ul>
+<h2 id="ecloseq-is-defined-as"><span class="math inline"><em>E</em><em>c</em><em>l</em><em>o</em><em>s</em><em>e</em>(<em>q</em>)</span> is defined as</h2>
+<ul>
+<li>contains the set q</li>
+<li>if <span class="math inline"><em>p</em><em>i</em><em>n</em><em>E</em><em>c</em><em>l</em><em>o</em><em>s</em><em>e</em>(<em>q</em>)</span>, and <span class="math inline"><em>r</em><em>i</em><em>n</em><em>d</em><em>e</em><em>l</em><em>t</em><em>a</em></span>(p,<span class="math inline"><em>e</em><em>p</em><em>s</em><em>i</em><em>l</em><em>o</em><em>n</em></span>) then <span class="math inline"><em>r</em><em>i</em><em>n</em><em>E</em><em>c</em><em>l</em><em>o</em><em>s</em><em>e</em>(<em>q</em>)</span> and no other states</li>
+</ul>
+<h2 id="extended-transition-function">Extended transition function</h2>
+<ul>
+<li><span class="math inline"><em>h</em><em>a</em><em>t</em><em>d</em><em>e</em><em>l</em><em>t</em><em>a</em>(<em>q</em>, <em>e</em><em>p</em><em>s</em><em>i</em><em>l</em><em>o</em><em>n</em>)=<em>E</em><em>c</em><em>l</em><em>o</em><em>s</em><em>e</em>(<em>q</em>)</span></li>
+<li><span class="math inline"><em>h</em><em>a</em><em>t</em><em>d</em><em>e</em><em>l</em><em>t</em><em>a</em>(<em>q</em>, <em>x</em><em>a</em>)=<em>p</em><em>i</em><em>n</em><em>h</em><em>a</em><em>t</em><em>d</em><em>e</em><em>l</em><em>t</em><em>a</em>(<em>q</em>, <em>x</em>)<em>u</em><em>n</em><em>i</em><em>o</em><em>n</em><em>E</em><em>c</em><em>l</em><em>o</em><em>s</em><em>e</em>(<em>d</em><em>e</em><em>l</em><em>t</em><em>a</em>(<em>p</em>, <em>a</em>))</span></li>
+<li>where x is a string and a is letter</li>
+</ul>
+<h2 id="language-of-an-epsilon-nfa">Language of an <span class="math inline"><em>e</em><em>p</em><em>s</em><em>i</em><em>l</em><em>o</em><em>n</em></span>-NFA</h2>
+<ul>
+<li>Same as NFA</li>
+</ul>
+<h2 id="theorem.-for-every-epsilon-nfa-a-there-is-a-dfa-d-such-that-la-ld.">Theorem. For every <span class="math inline"><em>e</em><em>p</em><em>s</em><em>i</em><em>l</em><em>o</em><em>n</em></span>-NFA A there is a DFA D such that L(A) = L(D).</h2>
+<ul>
+<li>let A = <span class="math inline">(<em>Q</em>, <em>s</em><em>i</em><em>g</em><em>m</em><em>a</em>, <em>d</em><em>e</em><em>l</em><em>t</em><em>a</em>, <em>q</em>0, <em>f</em>)</span> be given.</li>
+<li>Construct DFA D = <span class="math inline">(<em>Q</em><sub><em>D</em></sub>, <em>s</em><em>i</em><em>g</em><em>m</em><em>a</em>, <em>d</em><em>e</em><em>l</em><em>t</em><em>a</em><sub><em>D</em></sub>, <em>q</em><sub><em>D</em></sub>, <em>f</em><sub><em>D</em></sub>)</span></li>
+<li><span class="math inline"><em>Q</em><sub><em>D</em></sub> = <em>P</em>(<em>Q</em>)</span> power set of Q</li>
+<li><span class="math inline"><em>Q</em><sub><em>D</em></sub> = <em>E</em><em>c</em><em>l</em><em>o</em><em>s</em><em>e</em>(<em>q</em><sub>0</sub>)</span></li>
+<li><span class="math inline"><em>F</em><sub><em>D</em></sub> = <em>d</em><em>e</em><em>l</em><em>t</em><em>a</em> &lt; =<em>Q</em> : <em>d</em><em>e</em><em>l</em><em>t</em><em>a</em><em>u</em><em>n</em><em>i</em><em>o</em><em>n</em><em>F</em> = /<em>n</em><em>u</em><em>l</em><em>l</em></span></li>
+<li>$delta_D(S, a)
+<ul>
+<li>S is a state</li>
+</ul></li>
+</ul>
+<h1 id="regular-expressions">Regular Expressions</h1>
+<ul>
+<li>EF, L(EF) -&gt; L(E)L(F) – Concatenation</li>
+<li><ul>
+<li>is or</li>
+</ul></li>
+</ul>
+<h2 id="operations-on-languages">Operations on languages</h2>
+<ul>
+<li>if L and M are languages (L, M in sigma **), then LM</li>
+</ul>
+<h2 id="formal-proof">Formal Proof</h2>
+<ul>
+<li>case r = EF</li>
+<li><p>E loses its final states</p></li>
+<li>case r = <span class="math inline"><em>E</em> * *</span></li>
+<li><p>start state becomes final state</p></li>
+</ul>
+
+        </div>
+        <div id="footer">
+            Site proudly generated by
+            <a href="http://jaspervdj.be/hakyll">Hakyll</a>
+        </div>
+    </body>
+</html>
