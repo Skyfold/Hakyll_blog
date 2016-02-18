@@ -1,0 +1,46 @@
+---
+title: Formal definition of DFA 
+---
+
+## Languages :: over an alphabet (sigma)
+  - Set of string formed from characters is $sigma$
+  - The set of all syntactically correct Haskell programs
+  - The set of all always terminating Haskell functions of type (int -> int) [Not possible on Turing machine] 
+  - The empty set $O/$
+  - All strings $sigma**$
+
+## Alphabet :: Finite set of letters
+  - Ascii
+  - Unicode, UTF-8
+  - {0, 1}
+
+## Notation
+  - $epsilon$ : empty string
+  - uv : concatanation of u and v
+
+# Deterministic Finite Automata
+  - DFA are tuples defined as $(Q, \Sigma, \delta, q_0, F)$
+  - $Q$ is the finite set of states
+  - $\Sigma$ is the alphabet
+  - $\delta :: Q \cdot \Sigma \to Q$ are the set of transition funcions
+  - $q_0 \in Q$ is the inital state 
+  - $F \in Q$ is the final states
+
+## Extended Transition function
+  - $ \hat{\delta} : Q x $\sigma$^* -> Q $
+  - $ \hat{\delta}(q_0, xa) = \delta((\hat{\delta}(q, x)), a) $
+
+## Languages of DPA A = (Q, (sigma), (delta), q0, F)
+  - $ L(A) - {w \in \Sigma^* : \hat{\delta} (q0, w) (in) F} $
+
+## Non-deterministic finite automata tuples (Q, (sigma), (delta), q0, f)
+  - same as DFA, but...
+  - $\delta : Q x \Sigma -> $ (power set of Q) = set of all sutset of Q
+
+### Extending Transition function
+  - $\hat{\delta} : Q x \sigma^* \to (set of sets) = (power set of Q) $
+  - $\hat{\delta} (q, (epsolon)) = {q} $
+  - $\hat{\delta} (q, xa) = q' \in \delta \hat ( \union \delta(q',a) $
+
+## Language of NFA A:
+  - $L(A) = {w \in \sigma* : \delta \hat (q0, w) \disjunction F \notequal \varnothing} $
